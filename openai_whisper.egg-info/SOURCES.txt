@@ -1,0 +1,11 @@
+README.md
+setup.py
+normalizers/__init__.py
+normalizers/basic.py
+normalizers/english.py
+openai_whisper.egg-info/PKG-INFO
+openai_whisper.egg-info/SOURCES.txt
+openai_whisper.egg-info/dependency_links.txt
+openai_whisper.egg-info/entry_points.txt
+openai_whisper.egg-info/requires.txt
+openai_whisper.egg-info/top_level.txt

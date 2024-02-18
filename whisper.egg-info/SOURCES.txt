@@ -1,0 +1,8 @@
+setup.py
+normalizers/__init__.py
+normalizers/basic.py
+normalizers/english.py
+whisper.egg-info/PKG-INFO
+whisper.egg-info/SOURCES.txt
+whisper.egg-info/dependency_links.txt
+whisper.egg-info/top_level.txt
