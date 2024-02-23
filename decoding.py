@@ -698,6 +698,8 @@ class DecodingTask:
         ## TGARD added (deprecated on 240216, useful for debugging)
         # loop_length = self.sample_len
         # pbar_decode = tqdm(total=loop_length, desc="Decoding progress")
+        progress_counter = 0
+        increment = 0.0001
 
         try:
             for i in range(self.sample_len):
@@ -733,7 +735,14 @@ class DecodingTask:
                 #     )
 
                 if callback is not None:
-                    callback(3)
+                    # callback(3)
+                    # progress_counter += increment
+
+                    callback(
+                        increment,
+                        decode_increment=True,
+                        description="Decoding...",
+                    )
                 else:
                     print("no callback function")
 

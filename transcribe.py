@@ -131,7 +131,8 @@ def transcribe(
         callback(
             0,
             total_frames=content_frames,
-            description="Decoding file",
+            description="Decoding...",
+            # decoding=True,
         )
 
     # print(f"\nwe'll be parsing through {content_frames} frames in this clip!\n")
@@ -334,10 +335,6 @@ def transcribe(
             )
             seek += segment_size
 
-        ## Callback
-        # if callback is not None:
-        #     callback()
-
         if word_timestamps:
             add_word_timestamps(
                 segments=current_segments,
@@ -389,13 +386,15 @@ def transcribe(
             prompt_reset_since = len(all_tokens)
 
         progress = min(content_frames, seek)  # - previous_seek
+        percent_done = progress / content_frames
 
         # update progress bar
         # pbar.update(progress)
 
         ## CALLBACK FUNCTION (MAIN 240216)
         if callback is not None:
-            callback(progress, update=False)
+            # callback(progress, update=False)
+            callback(percent_done, description="Chunk transcribed...")
 
     return dict(
         text=tokenizer.decode(all_tokens[len(initial_prompt_tokens) :]),
